@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>website 3</title>
+    <style>    
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif, Arial;
+        }
+        .main{
+            width: 100%;
+            min-height: 100vh; /* height: 100vh se height fixed ho jati hai, min-height se content ke sath expand hoti hai */
+            background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.6)), url('https://picsum.photos/1920/1080');
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+        nav{
+            display: flex;
+            padding: 20px 60px;
+            align-items: center;
+            justify-content: space-between; /* space-around se better space-between kaam karta hai headers me */
+        }
+        nav h1{
+            color: #FF7200;
+            font-size: 35px;
+        }
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 40px;
+        }
+        nav ul li{
+            color: white;
+            font-size: 18px;
+            transition: 0.3s ease-in-out;
+            cursor: pointer;
+        }
+        nav ul li:hover{
+            color: #FF7200;
+            text-decoration: underline;
+        }
+        .btn{
+            display: flex;
+            align-items: center; 
+            gap: 30px;
+        }
+        .btn h3 a{
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+        }
+        .btn1{
+            padding: 12px 30px;
+            border: none;
+            border-radius: 30px 0px 30px 30px;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            background-image: linear-gradient(45deg, #df427a, #5633cb);
+            text-decoration: none;
+            transition: all 0.5s ease;
+        }
+        .btn1:hover{
+            border-radius: 30px;
+        }
+        .content{
+            padding: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex: 1;
+            gap: 40px;
+        }
+        .content-text {
+            flex: 1;
+        }
+        .content h1{
+            font-size: 50px;
+            line-height: 1.2;
+            color: white;
+            margin-bottom: 15px;
+        }
+        .content p{
+            color: #d1d5db;
+            line-height: 1.6;
+            font-size: 1.1rem;
+            max-width: 600px; /* HTML se <br> tags hata kar max-width lagai */
+        }
+        .btnz{
+            padding: 15px 35px;
+            border: none;
+            border-radius: 30px 0px 30px 30px;
+            color: white;
+            font-size: 18px;
+            cursor: pointer;
+            background-image: linear-gradient(45deg, #df427a, #5633cb);
+            text-decoration: none;
+            transition: all 0.5s ease;
+            margin-top: 25px;
+        }
+        .btnz:hover{
+            border-radius: 30px;
+        }
+        .hero{
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .hero img{
+            max-width: 100%; /* Image choti screens par box se bahar nahi nikle gi */
+            height: auto;
+        }
+       
+              /* animation  */
+          
+     
+            
+     /* ================= ANIMATION ================= */
+
+ @keyframes fadeUp{
+    from{
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to{
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeLeft{
+    from{
+        opacity: 0;
+        transform: translateX(100px);
+    }
+    to{
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes floating{
+    0%{
+        transform: translateY(0);
+    }
+    50%{
+        transform: translateY(-15px);
+    }
+    100%{
+        transform: translateY(0);
+    }
+}
+
+
+.content-text h1{
+    opacity: 0;
+    animation: fadeUp 0.8s ease forwards;
+    animation-delay: .3s;
+}
+
+
+.content-text p{
+    opacity: 0;
+    animation: fadeUp 0.8s ease forwards;
+    animation-delay: .8s;
+}
+
+
+.btnz{
+    opacity: 0;
+    animation: fadeUp 0.8s ease forwards;
+    animation-delay: 1.3s;
+}
+
+
+.hero img{
+    max-width: 100%;
+    height: auto;
+    opacity: 0;
+    animation:
+        fadeLeft 1s ease forwards 1.8s,
+        floating 3s ease-in-out infinite 2.8s;
+}
+
+        /* --- Media Queries for Responsiveness --- */
+
+        /* Tablets & Medium Screens */
+        @media (max-width: 992px) {
+            nav {
+                padding: 20px;
+            }
+            nav ul {
+                gap: 20px;
+            }
+            .content {
+                padding: 40px;
+                gap: 20px;
+            }
+            .content h1 {
+                font-size: 38px;
+            }
+        } 
+
+        /* Mobile Devices */
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                gap: 20px;
+                text-align: center;
+            }
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 20px;
+            }
+            .btn {
+                justify-content: center;
+            }
+            .content {
+                flex-direction: column-reverse; /* Mobile par layout column ho jaye ga, image pehle text baad me */
+                padding: 30px 20px;
+                text-align: center;
+            }
+            .content h1 {
+                font-size: 32px;
+            }
+            .content p {
+                margin: 0 auto;
+            }
+            .hero img {
+                width: 80%; /* Mobile par image screen ke mutabiq adjust ho gi */
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <nav>
+            <h1>NexaWeb</h1>
+            <ul>
+                <li>Features</li>
+                <li>How it works</li>
+                <li>Privacy</li>
+            </ul>
+            <div class="btn">
+                <h3><a href="#">Login</a></h3>
+                <a class="btn1" href="#">Download App</a>
+            </div>
+        </nav>
+
+        <div class="content">
+            <div class="content-text">
+                <h1 class="anim" id="anim">Make Your Web Design Alive</h1>
+                <p class="anim">Create stunning, animated, and highly interactive landing pages using pure HTML and CSS with seamless delays and animations.</p>
+                <button class="btnz">Join Now</button>
+            </div>
+            <div class="hero">
+                <img src="./hero.png" alt="Hero Image">
+            </div>
+        </div>
+    </div>
+</body>
+</html>
